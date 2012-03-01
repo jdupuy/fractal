@@ -454,6 +454,8 @@ void on_mouse_wheel(GLint wheel, GLint direction, GLint x, GLint y) {
 #ifdef _ANT_ENABLE
 	if(1 == TwMouseWheel(wheel))
 		return;
+	scaleExp-=0.01f*float(direction);
+	set_scale();
 #endif // _ANT_ENABLE
 }
 
@@ -517,7 +519,6 @@ int main(int argc, char** argv) {
 		std::cerr << "Fatal exception: " << e.what() << std::endl;
 		return 1;
 	}
-
 	return 0;
 }
 
