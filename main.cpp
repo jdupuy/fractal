@@ -68,7 +68,7 @@ Vector2 offset = Vector2(0,0);
 GLint fractalProgram = PROGRAM_MANDELBROT;
 
 #ifdef _ANT_ENABLE
-GLint iterationCnt = 33;
+GLint iterationCnt = 111;
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
