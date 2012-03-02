@@ -38,9 +38,8 @@ in vec2 varPosition;
 layout(location=0) out vec4 oColour;
 
 void main() {
-	oColour  = vec4(0);
-	vec2 z   = iPosition;
-	float i = 0;
+	vec2 z  = iPosition;
+	float i = 1.0;
 
 	for (; i < uIterationCnt && dot(z,z) < 4.0; ++i) {
 #if defined _MANDELBROT // mandelbrot set code
@@ -52,7 +51,7 @@ void main() {
 #endif
 	}
 
-	oColour = vec4(i/uIterationCnt);
+	oColour = 1.0-vec4(i/uIterationCnt);
 
 }
 #endif // _FRAGMENT_
