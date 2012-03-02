@@ -12,7 +12,8 @@ vec2 conjugate(vec2 z) {
 
 vec2 powc(vec2 z, float p) {
 	float zmod = length(z);
-	float zarg = atan(z.y,z.x);
+//	float zarg = atan(z.y,z.x); // bugged on AMD ?
+	float zarg = atan(z.y/z.x);
 	return pow(zmod,p)*vec2(cos(p*zarg), sin(p*zarg));
 }
 
