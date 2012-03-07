@@ -12,7 +12,8 @@ vec2 conjugate(vec2 z) {
 
 vec2 powc(vec2 z, float p) {
 	float zmod = length(z);
-	float zarg = atan(z.y,z.x);
+//	float zarg = atan(z.y,z.x); // bugged on AMD ?
+	float zarg = atan(z.y/z.x);
 	return pow(zmod,p)*vec2(cos(p*zarg), sin(p*zarg));
 }
 
@@ -37,9 +38,8 @@ in vec2 varPosition;
 layout(location=0) out vec4 oColour;
 
 void main() {
-	oColour  = vec4(1);
-	vec2 z   = iPosition;
-	float i = 0;
+	vec2 z  = iPosition;
+	float i = 1.0;
 
 	for (; i < uIterationCnt && dot(z,z) < 4.0; ++i) {
 #if defined _MANDELBROT // mandelbrot set code
