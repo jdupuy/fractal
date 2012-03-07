@@ -118,6 +118,9 @@ Vector2 Vector2::operator+(const Vector2& v) const
 Vector2 Vector2::operator-(const Vector2& v) const
 {return Vector2(mX-v.mX, mY-v.mY);}
 
+Vector2 Vector2::operator*(const float& s) const
+{return Vector2(mX*s, mY*s);}
+
 Vector2 Vector2::operator/(const float& s) const
 {
 #ifndef NDEBUG
@@ -140,6 +143,9 @@ Vector2& Vector2::operator+=(const Vector2& v)
 Vector2& Vector2::operator-=(const Vector2& v)
 {mX-=v.mX; mY-=v.mY; return (*this);}
 
+Vector2& Vector2::operator*=(const float& s)
+{mX*=s; mY*=s; return (*this);}
+
 Vector2& Vector2::operator/=(const float& s)
 {
 #ifndef NDEBUG
@@ -158,18 +164,6 @@ bool Vector2::operator==(const Vector2& v) const
 
 bool Vector2::operator!=(const Vector2& v) const
 { return !(v == *this); }
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Accessors
-const float& Vector2::GetX() const {return mX;}
-const float& Vector2::GetY() const {return mY;}
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Mutators
-void Vector2::SetX(const float& x) {mX = x;}
-void Vector2::SetY(const float& y) {mY = y;}
 
 
 ////////////////////////////////////////////////////////////////////////////////

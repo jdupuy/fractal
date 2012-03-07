@@ -106,6 +106,9 @@ Vector4 Vector4::operator+(const Vector4& v) const
 Vector4 Vector4::operator-(const Vector4& v) const
 {return Vector4(mX-v.mX, mY-v.mY, mZ-v.mZ, mW-v.mW);}
 
+Vector4 Vector4::operator*(const float& s) const
+{return Vector4(mX*s, mY*s, mZ*s, mW*s);}
+
 Vector4 Vector4::operator/(const float& s) const
 {
 #ifndef NDEBUG
@@ -128,6 +131,9 @@ Vector4& Vector4::operator+=(const Vector4& v)
 Vector4& Vector4::operator-=(const Vector4& v)
 {mX-=v.mX; mY-=v.mY; mZ-=v.mZ; mW-=v.mW; return (*this);}
 
+Vector4& Vector4::operator*=(const float& s)
+{mX*=s; mY*=s; mZ*=s; mW*=s; return (*this);}
+
 Vector4& Vector4::operator/=(const float& s)
 {
 #ifndef NDEBUG
@@ -148,22 +154,6 @@ bool Vector4::operator==(const Vector4& v) const
 
 bool Vector4::operator!=(const Vector4& v) const
 { return !(v == *this); }
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Accessors
-const float& Vector4::GetX() const {return mX;}
-const float& Vector4::GetY() const {return mY;}
-const float& Vector4::GetZ() const {return mZ;}
-const float& Vector4::GetW() const {return mW;}
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Mutators
-void Vector4::SetX(const float& x) {mX = x;}
-void Vector4::SetY(const float& y) {mY = y;}
-void Vector4::SetZ(const float& z) {mZ = z;}
-void Vector4::SetW(const float& w) {mW = w;}
 
 
 ////////////////////////////////////////////////////////////////////////////////

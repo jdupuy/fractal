@@ -37,7 +37,7 @@ in vec2 varPosition;
 layout(location=0) out vec4 oColour;
 
 void main() {
-	oColour  = vec4(0);
+	oColour  = vec4(1);
 	vec2 z   = iPosition;
 	float i = 0;
 
@@ -51,7 +51,7 @@ void main() {
 #endif
 	}
 
-	oColour = vec4(i/uIterationCnt);
+	oColour = 1.0-vec4(i/uIterationCnt);
 
 }
 #endif // _FRAGMENT_

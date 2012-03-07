@@ -190,7 +190,7 @@ Matrix4x4 Matrix4x4::Ortho(const float& left,
                            const float& far)
 {
 #ifndef NDEBUG
-	assert(left != right && bottom != top && near != bottom);
+	assert(left != right || bottom != top || near != bottom);
 #endif
 	// do some precomputations
 	float oneOverRightMinusLeft = 1.0f/(right - left);
@@ -223,9 +223,9 @@ Matrix4x4 Matrix4x4::Frustum(const float& left,
 {
 #ifndef NDEBUG
 	assert(   left != right
-	       && bottom != top
-	       && near < far
-	       && near > 0.0f);
+	       || bottom != top
+	       || near < far
+	       || near > 0.0f);
 #endif
 	// do some precomputations
 	float oneOverRightMinusLeft = 1.0f/(right - left);
@@ -259,9 +259,9 @@ Matrix4x4 Matrix4x4::Perspective(const float& fovyRadians,
 {
 #ifndef NDEBUG
 	assert(   fovyRadians > 0.0f
-	       && aspect > 0.0f
-	       && near < far
-	       && near > 0.0f);
+	       || aspect > 0.0f
+	       || near < far
+	       || near > 0.0f);
 #endif
 	// from OpenGL2.1 SDK (gluPerspective)
 	float f = 1.0f/tan(fovyRadians*0.5f);
