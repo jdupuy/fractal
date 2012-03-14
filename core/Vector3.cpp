@@ -121,6 +121,9 @@ Vector3 Vector3::operator+(const Vector3& v) const
 Vector3 Vector3::operator-(const Vector3& v) const
 {return Vector3(mX-v.mX, mY-v.mY, mZ-v.mZ);}
 
+Vector3 Vector3::operator*(const float& s) const
+{return Vector3(mX*s, mY*s, mZ*s);}
+
 Vector3 Vector3::operator/(const float& s) const
 {
 #ifndef NDEBUG
@@ -143,6 +146,9 @@ Vector3& Vector3::operator+=(const Vector3& v)
 Vector3& Vector3::operator-=(const Vector3& v)
 {mX-=v.mX; mY-=v.mY; mZ-=v.mZ; return (*this);}
 
+Vector3& Vector3::operator*=(const float& s)
+{mX*=s; mY*=s; mZ*=s; return (*this);}
+
 Vector3& Vector3::operator/=(const float& s)
 {
 #ifndef NDEBUG
@@ -162,20 +168,6 @@ bool Vector3::operator==(const Vector3& v) const
 
 bool Vector3::operator!=(const Vector3& v) const
 { return !(v == *this); }
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Accessors
-const float& Vector3::GetX() const {return mX;}
-const float& Vector3::GetY() const {return mY;}
-const float& Vector3::GetZ() const {return mZ;}
-
-
-////////////////////////////////////////////////////////////////////////////////
-// Mutators
-void Vector3::SetX(const float& x) {mX = x;}
-void Vector3::SetY(const float& y) {mY = y;}
-void Vector3::SetZ(const float& z) {mZ = z;}
 
 
 ////////////////////////////////////////////////////////////////////////////////

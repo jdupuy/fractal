@@ -7,6 +7,9 @@
 //         - Affine: allows to build affine transformations in a right handed
 //           cartesian coordinate system.
 //         - Projection: allows to build projections.
+//         - PinholeCamera: builds both an affine and a pin hole projection.
+//           The pin hole projection is locked to the aspect of the camera's
+//           resolution.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -182,6 +185,78 @@ private:
 	float mFar;
 	ProjectionType mType;
 };
+
+
+////////////////////////////////////////////////////////////////////////////////
+// PinholeCamera definition
+//class PinholeCamera
+//{
+//public:
+//	// Factories (using default settings)
+//	static PinholeCamera Perspective(int16_t xres,
+//	                                 int16_t yres);
+//	static PinholeCamera Parallel(int16_t xres,
+//	                              int16_t yres);
+//	static PinholeCamera Left(int16_t xres,
+//	                          int16_t yres);
+//	static PinholeCamera Right(int16_t xres,
+//	                           int16_t yres);
+//	static PinholeCamera Top(int16_t xres,
+//	                         int16_t yres);
+//	static PinholeCamera Bottom(int16_t xres,
+//	                            int16_t yres);
+//	static PinholeCamera Front(int16_t xres,
+//	                           int16_t yres);
+//	static PinholeCamera Back(int16_t xres,
+//	                          int16_t yres);
+
+//	// Matrix extraction
+//	Matrix4x4 ExtractViewTransformMatrix()               const;
+//	Matrix4x4 ExtractInverseViewTransformMatrix()        const;
+//	Matrix4x4 ExtractProjectionTransformMatrix()         const;
+//	Matrix4x4 ExtractInverseProjectionTransformMatrix()  const;
+
+//	// Queries
+//	float ResolutionAspect() const;
+
+//	// Member access
+//	Affine& CoordinateSystem();
+
+//	// Extract a normalized direction 
+//	Vector3 PixelRayDir(int16_t x,
+//	                    int16_t y,
+//	                    float offsetX,
+//	                    float offsetY) const;
+
+//	// Mutators
+//	static void SetDefaultPerspectiveProjection(const Projection& p);
+//	static void SetDefaultParallelProjection(const Projection& p);
+//	void SetProjection(const Projection& projection);
+//	void SetXResolution(int16_t pixelCount);
+//	void SetYResolution(int16_t pixelCount);
+
+//	// Accessors
+//	const Projection& GetProjection()  const;
+//	int16_t GetXResolution()                  const;
+//	int16_t GetYResolution()                  const;
+
+//protected:
+//	// Hidden constructors
+//	PinholeCamera(const AffineTransform& coordSystem,
+//	              const Projection& projection,
+//	              int16_t xres,
+//	              int16_t yres);
+
+//	// Members
+//	static Projection sDefaultPerspectiveProjection;
+//	static Projection sDefaultParallelProjection;
+
+//	Affine             mCoordinateSystem;
+//	Projection         mProjection;
+//	int16_t            mXResolution;
+//	int16_t            mYResolution;
+//};
+
 
 #endif
 

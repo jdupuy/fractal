@@ -784,7 +784,7 @@ float half_to_float(GLhalf h)
 ////////////////////////////////////////////////////////////////////////////////
 // Timer Constructor
 Timer::Timer() : 
-	mStartTicks(0.0), mStopTicks(0.0), mIsTicking()
+	mStartTicks(0.0), mStopTicks(0.0), mIsTicking(false)
 {}
 
 
@@ -792,8 +792,7 @@ Timer::Timer() :
 // Timer::Start 
 void Timer::Start()
 {
-	if(false == mIsTicking)
-	{
+	if(!mIsTicking) {
 		mIsTicking  = true;
 		mStartTicks = _get_ticks();
 	}
@@ -804,8 +803,7 @@ void Timer::Start()
 // Timer::Stop()
 void Timer::Stop()
 {
-	if(true == mIsTicking)
-	{
+	if(mIsTicking) {
 		mIsTicking = false;
 		mStopTicks = _get_ticks();
 	}
@@ -816,7 +814,8 @@ void Timer::Stop()
 // Timer::Ticks()
 double Timer::Ticks() const
 {
-	return true==mIsTicking ? _get_ticks() - mStartTicks : mStopTicks - mStartTicks;
+	return mIsTicking ? _get_ticks() - mStartTicks 
+	                  : mStopTicks - mStartTicks;
 }
 
 

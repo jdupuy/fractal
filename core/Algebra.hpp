@@ -93,14 +93,6 @@ public:
 	Vector2 Floor()       const;
 	Vector2 Frac()        const;
 
-	// Mutators
-	void SetX(const float& x);
-	void SetY(const float& y);
-
-	// Accessors
-	const float& GetX() const;
-	const float& GetY() const;
-
 	// Constants
 	static const Vector2 ZERO;
 
@@ -186,16 +178,6 @@ public:
 	Vector3 Floor()       const;
 	Vector3 Frac()        const;
 
-	// Mutators
-	void SetX(const float& x);
-	void SetY(const float& y);
-	void SetZ(const float& z);
-
-	// Accessors
-	const float& GetX() const;
-	const float& GetY() const;
-	const float& GetZ() const;
-
 	// Constants
 	static const Vector3 ZERO;
 
@@ -272,18 +254,6 @@ public:
 	Vector4 Ceil()        const;
 	Vector4 Floor()       const;
 	Vector4 Frac()        const;
-
-	// Mutators
-	void SetX(const float& x);
-	void SetY(const float& y);
-	void SetZ(const float& z);
-	void SetW(const float& w);
-
-	// Accessors
-	const float& GetX() const;
-	const float& GetY() const;
-	const float& GetZ() const;
-	const float& GetW() const;
 
 	// Constants
 	static const Vector4 ZERO;
