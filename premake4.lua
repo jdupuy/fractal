@@ -33,7 +33,7 @@ solution "OpenGL"
 -- Linux x86 platform gmake
 		configuration {"linux", "gmake", "x32"}
 			linkoptions {
-			"-Wl,-rpath,./lib/linux/lin32 -L./lib/linux/lin32 -lGLEW -lglut -lAntTweakBar"
+			"-Wl,-rpath,./lib/linux/lin32 -L./lib/linux/lin32 -lGLEW -lglut -lAntTweakBar -lGL"
 			}
 			libdirs {
 			"lib/linux/lin32"
@@ -42,7 +42,7 @@ solution "OpenGL"
 -- Linux x64 platform gmake
 		configuration {"linux", "gmake", "x64"}
 			linkoptions {
-			"-Wl,-rpath,./lib/linux/lin64 -L./lib/linux/lin64 -lGLEW -lglut -lAntTweakBar"
+			"-Wl,-rpath,./lib/linux/lin64 -L./lib/linux/lin64 -lGLEW -lglut -lAntTweakBar -lGL"
 			}
 			libdirs {
 			"lib/linux/lin64"
